@@ -1,0 +1,55 @@
+Palo Alto Networks - Unit 42
+============================
+Datasource: https://unit42.paloaltonetworks.com/
+
+
+Avast Threat Labs
+=================
+URL: div[2]/div[1]/h2/a
+Title: div[2]/div[1]/h2/a
+Date: div[2]/div[1]/div[2]/span[2]/span
+Entry:
+https://decoded.avast.io/,article,div[2]/div[1]/h2/a,div[2]/div[1]/h2/a,div[2]/div[1]/div[2]/span[2]/span
+
+
+Krebs On Security
+=================
+DataSource: https://krebsonsecurity.com/
+bs4 keyword: article
+URL XPath: header/h2/a
+TITLE XPath: header/h2/a
+Date XPath: header/div[2]/div/div[1]/span
+Entry:
+https://krebsonsecurity.com/,article,header/h2/a,header/h2/a,header/div[2]/div/div[1]/span
+
+
+WeLiveSecurity
+==============
+Datasource: https://www.welivesecurity.com/category/*/
+bs4 Keyword per article: article
+URL XPath: div[2]/h2/a
+TITLE XPath: div[2]/h2/a
+Date XPath: div[2]/span/time
+Entries:
+https://www.welivesecurity.com/category/cybercrime/,article,div[2]/h2/a,div[2]/h2/a,div[2]/span/time
+https://www.welivesecurity.com/category/malware/,article,div[2]/h2/a,div[2]/h2/a,div[2]/span/time
+https://www.welivesecurity.com/category/privacy/,article,div[2]/h2/a,div[2]/h2/a,div[2]/span/time
+https://www.welivesecurity.com/category/cybersecurity/,article,div[2]/h2/a,div[2]/h2/a,div[2]/span/time
+https://www.welivesecurity.com/category/password/,article,div[2]/h2/a,div[2]/h2/a,div[2]/span/time
+https://www.welivesecurity.com/category/scams/,article,div[2]/h2/a,div[2]/h2/a,div[2]/span/time
+https://www.welivesecurity.com/category/how-to/,article,div[2]/h2/a,div[2]/h2/a,div[2]/span/time
+https://www.welivesecurity.com/category/android-2/,article,div[2]/h2/a,div[2]/h2/a,div[2]/span/time
+https://www.welivesecurity.com/category/ransomware-malware/,article,div[2]/h2/a,div[2]/h2/a,div[2]/span/time
+https://www.welivesecurity.com/category/mobile-security/,article,div[2]/h2/a,div[2]/h2/a,div[2]/span/time
+https://www.welivesecurity.com/category/data-protection/,article,div[2]/h2/a,div[2]/h2/a,div[2]/span/time
+https://www.welivesecurity.com/category/kids-online/,article,div[2]/h2/a,div[2]/h2/a,div[2]/span/time
+https://www.welivesecurity.com/category/covid-19/,article,div[2]/h2/a,div[2]/h2/a,div[2]/span/time
+https://www.welivesecurity.com/category/internet-of-things-2/,article,div[2]/h2/a,div[2]/h2/a,div[2]/span/time
+https://www.welivesecurity.com/category/ukraine-crisis-digital-security-resource-center/,article,div[2]/h2/a,div[2]/h2/a,div[2]/span/time
+https://www.welivesecurity.com/category/secure-coding/,article,div[2]/h2/a,div[2]/h2/a,div[2]/span/time
+https://www.welivesecurity.com/category/threat-reports/,article,div[2]/h2/a,div[2]/h2/a,div[2]/span/time
+https://www.welivesecurity.com/category/fintech/,article,div[2]/h2/a,div[2]/h2/a,div[2]/span/time
+https://www.welivesecurity.com/category/we-live-progress/,article,div[2]/h2/a,div[2]/h2/a,div[2]/span/time
+
+
+
