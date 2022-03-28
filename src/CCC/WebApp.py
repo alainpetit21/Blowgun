@@ -42,7 +42,7 @@ class CherryPyExposure(Thread):
         """ load Description : (public visibility) :
             Preparing the Thread for running.
         """
-        cherrypy.config.update({'server.socket_host': '0.0.0.0', 'server.socket_port': 80, 'request.show_tracebacks': False})
+        cherrypy.config.update({'server.socket_host': '0.0.0.0', 'server.socket_port': 5000, 'request.show_tracebacks': False})
         #cherrypy.config.update({'server.socket_host': '127.0.0.1', 'server.socket_port': 8080, 'request.show_tracebacks': False})
 
     # ==================================================================================================================
