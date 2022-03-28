@@ -1,13 +1,13 @@
 import cherrypy
 
-# ======================================================================================================================
-# importing library modules
 from src.CCC.WebApp import WebApp, CherryPyExposure
+from src.Repository.BG_Report_Repository import BG_Report_Repository
 
 
 class MyCherryPyThread(CherryPyExposure):
     def __init__(self, pObjRESTfulService):
         super().__init__(pObjRESTfulService)
+        self.repoReport = BG_Report_Repository()
 
     @cherrypy.expose
     def index(self):
@@ -17,13 +17,18 @@ class MyCherryPyThread(CherryPyExposure):
 
 @cherrypy.expose
 class MyCherryPyRestService:
+    def __init__(self):
+        self.repoReport = BG_Report_Repository()
 
     @cherrypy.tools.accept(media='text/plain')
     def POST(self):
         return "POST"
 
-    def GET(self):
-        return "GET"
+    @cherrypy.tools.accept(media='text/plain')
+    def GET(self, keyword=""):
+        objQueryResults = self.repoReport.searchInTitle(keyword)
+        return str(objQueryResults)
+
 
     def PUT(self):
         return "PUT"

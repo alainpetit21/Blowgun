@@ -1,7 +1,13 @@
-Palo Alto Networks - Unit 42
-============================
-Datasource: https://unit42.paloaltonetworks.com/
-
+Palo Alto - Unit 42
+===================
+Datasource URL: https://unit42.paloaltonetworks.com/
+DataSource Backfill: special file in ./data
+bs4 keyword: article
+URL XPath: div[2]/h3/a
+Title XPath: div[2]/h3/a
+Date XPath: div[2]/ul/li[2]/time
+Entry:
+https://unit42.paloaltonetworks.com/,article,div[2]/h3/a,div[2]/h3/a,div[2]/ul/li[2]/time
 
 Avast Threat Labs
 =================

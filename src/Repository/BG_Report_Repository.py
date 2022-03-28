@@ -3,10 +3,12 @@ import os
 import os.path
 import sqlite3
 
+from src.CCC.SingletonDecorator import SingletonDecorator
 from src.Model.BG_QueryResults import BG_QueryResults
 from src.Model.BG_Report import BG_Report
 
 
+@SingletonDecorator
 class BG_Report_Repository:
     def __init__(self):
         if not (os.path.isfile('./data/blowgun.db')):
@@ -49,7 +51,8 @@ class BG_Report_Repository:
     def searchInTitle(self, searchTerm: str) -> BG_QueryResults:
         connection = sqlite3.connect('./data/blowgun.db')
         cursor = connection.cursor()
-        cursor.execute("SELECT * FROM Report WHERE title LIKE '%" + searchTerm + "'%")
+        sqlCommand = 'SELECT * FROM Report WHERE title LIKE "%' + searchTerm + '%"'
+        cursor.execute(sqlCommand)
         lstRows = cursor.fetchall()
 
         objQueryResults = BG_QueryResults()
