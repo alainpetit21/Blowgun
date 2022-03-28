@@ -8,8 +8,6 @@ class BG_Report:
         self.strReportText = ""
         self.strDate = ""
 
-
-
     def setClassification(self, strClassification):
         self.strClassification = strClassification
 
