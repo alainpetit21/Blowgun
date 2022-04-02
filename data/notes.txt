@@ -1,3 +1,86 @@
+Blank
+===================
+DataSource :
+DataSource Backfill :
+bs4 keyword:
+bs4 attribut:
+URL XPath:
+Title XPath:
+Date XPath:
+Entry:
+
+threatpost - TODO
+===================
+DataSource : https://threatpost.com/
+DataSource Backfill :
+bs4 keyword:
+bs4 attribut:
+URL XPath:
+Title XPath:
+Date XPath:
+Entry:
+
+schneier - TODO
+===================
+DataSource : https://www.schneier.com/
+DataSource Backfill :
+bs4 keyword: div
+bs4 attribut: class="article"
+URL XPath:
+Title XPath:
+Date XPath:
+Entry:
+
+nakedsecurity - TODO
+===================
+DataSource : https://nakedsecurity.sophos.com/
+DataSource Backfill :
+bs4 keyword:
+bs4 attribut:
+URL XPath:
+Title XPath:
+Date XPath:
+Entry:
+
+
+securityaffairs - TODO
+===================
+DataSource : https://securityaffairs.co/wordpress/
+DataSource Backfill : https://securityaffairs.co/wordpress/page/1282
+bs4 keyword: div
+bs4 attribut: class="post"
+URL XPath:
+Title XPath:
+Date XPath:
+Entry:
+
+cybergeeks - TODO
+===================
+DataSource : https://cybergeeks.tech/
+DataSource Backfill : https://cybergeeks.tech/page/2/
+bs4 keyword: article
+bs4 attribut:
+URL XPath:
+Title XPath:
+Date XPath:
+Entry:
+
+
+
+
+Dark Reading
+===================
+DataSource : https://www.darkreading.com/threat-intelligence
+DataSource Backfill : https://www.darkreading.com/threat-intelligence?page=377
+bs4 keyword: div
+bs4 attribut: class:topic-content-article
+URL XPath: div[2]/div/div/div[1]/div[2]/a
+Title XPath: div[2]/div/div/div[1]/div[2]/a
+Date XPath: div[2]/div/div/div[2]/div[2]/div[2]
+Entry:
+https://www.darkreading.com/threat-intelligence,div,class:topic-content-article,div[2]/div/div/div[1]/div[2]/a,div[2]/div/div/div[1]/div[2]/a,div[2]/div/div/div[2]/div[2]/div[2]
+
+
 Palo Alto - Unit 42
 ===================
 Datasource URL: https://unit42.paloaltonetworks.com/

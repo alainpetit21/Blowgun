@@ -1,4 +1,4 @@
-URL,bs4Keywork,,XpathForArticleURL,XpathForArticleTitle,XpathForArticleDate
+URL,bs4Keywork,bs4Attribute,XpathForArticleURL,XpathForArticleTitle,XpathForArticleDate
 https://www.darkreading.com/threat-intelligence,div,class:topic-content-article,div[2]/div/div/div[1]/div[2]/a,div[2]/div/div/div[1]/div[2]/a,div[2]/div/div/div[2]/div[2]/div[2]
 https://unit42.paloaltonetworks.com/,article,,div[2]/h3/a,div[2]/h3/a,div[2]/ul/li[2]/time
 https://decoded.avast.io/,article,,div[2]/div[1]/h2/a,div[2]/div[1]/h2/a,div[2]/div[1]/div[2]/span[2]/span

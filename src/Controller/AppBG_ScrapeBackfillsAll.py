@@ -1,14 +1,5 @@
-import time
-import csv
-import requests
-
-from bs4 import BeautifulSoup
-from lxml import etree
-from src.CCC.Thread import Thread
 from src.Controller.AppBG_ScrapeDeamon import AppBG_ScrapeDeamon
-
 from src.Repository.BG_Report_Repository import BG_Report_Repository
-from src.Model.BG_Report import BG_Report
 
 
 class AppBG_ScrapeBackfillsAll(AppBG_ScrapeDeamon):
