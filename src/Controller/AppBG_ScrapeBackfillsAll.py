@@ -11,6 +11,8 @@ class AppBG_ScrapeBackfillsAll(AppBG_ScrapeDeamon):
         pass
 
     def onManageSpecialBackFillPaloAltoUnit42(self):
+        print("Backfill Unit42")
+
         with open('./data/Unit42_BackFill.html', newline='') as file:
             lines = file.readlines()
             text = "".join(lines)
@@ -18,9 +20,12 @@ class AppBG_ScrapeBackfillsAll(AppBG_ScrapeDeamon):
             self._processHTML(text, "article", {}, "div[2]/h3/a", "div[2]/h3/a", "div[2]/ul/li[2]/time")
 
     def onManageSpecialBackFillAvast(self):
+        print("Backfill Avast")
+
         # Special backfil krebsonsecurity.com/page/[2-213]
         for i in range(2, 8):
-            # https://decoded.avast.io/page/2/,article,div[2]/div[1]/h2/a,div[2]/div[1]/h2/a,div[2]/div[1]/div[2]/span[2]/span
+            print("Page " + str(i))
+
             try:
                 self._processDataSource("https://decoded.avast.io/page/" + str(i) + "/", "article", {}, "div[2]/div[1]/h2/a", "div[2]/div[1]/h2/a", "div[2]/div[1]/div[2]/span[2]/span")
             except Exception as err:
@@ -28,8 +33,11 @@ class AppBG_ScrapeBackfillsAll(AppBG_ScrapeDeamon):
                 continue
 
     def onManageSpecialBackFillKrebOnSecurity(self):
-        # Special backfil krebsonsecurity.com/page/[2-213]
+        print("Backfill KrebOnSecurity")
+
         for i in range(2, 213):
+            print("Page " + str(i))
+
             # https://krebsonsecurity.com/page/2/,article,header/h2/a,header/h2/a,header/div[2]/div/div[1]/span
             try:
                 self._processDataSource("https://krebsonsecurity.com/page/" + str(i) + "/", "article", {}, "header/h2/a", "header/h2/a", "header/div[2]/div/div[1]/span")
@@ -38,7 +46,10 @@ class AppBG_ScrapeBackfillsAll(AppBG_ScrapeDeamon):
                 continue
 
     def onManageSpecialBackFilldarkreading(self):
+        print("Backfill darkreading")
         for i in range(2, 377):
+            print("Page " + str(i))
+
             # https://www.darkreading.com/threat-intelligence?page=377,div,class:topic-content-article,div[2]/div/div/div[1]/div[2]/a,div[2]/div/div/div[1]/div[2]/a,div[2]/div/div/div[2]/div[2]/div[2]
             try:
                 self._processDataSource("https://www.darkreading.com/threat-intelligence?page=" + str(i), "div", {'class': 'topic-content-article'}, "div[2]/div/div/div[1]/div[2]/a", "div[2]/div/div/div[1]/div[2]/a", "div[2]/div/div/div[2]/div[2]/div[2]")

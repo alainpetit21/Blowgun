@@ -20,8 +20,14 @@ class AppBG_ScrapeDeamon(Thread):
     def load(self):
         pass
 
+    def _processSpecificPatches(self, strHTML) -> str:
+        strHTML = strHTML.replace("\n", "")
+        strHTML = strHTML.replace("\t", "")
+        return strHTML
+
     def _processHTML(self, htmlSource, elementDelimiter, dicAttribute, subElementURL, subElementTitle,
                      subElementDateReport):
+        time.sleep(1)  # every 0.1 second, for some reason when it's writing too fast to stdin, it crashes
         soup = BeautifulSoup(htmlSource, 'html.parser')
 
         if len(dicAttribute) == 0:
@@ -33,11 +39,7 @@ class AppBG_ScrapeDeamon(Thread):
         # URL, elementDelimiter, subElementURL, subElementTitle, subElementDateReport
         for summary in summaries:
             strWholeArticleHTML = str(summary)
-            # for item in summary.contents:
-            # strWholeArticleHTML = strWholeArticleHTML + str(item)
-
-            strWholeArticleHTML = strWholeArticleHTML.replace("\n", "")
-            strWholeArticleHTML = strWholeArticleHTML.replace("\t", "")
+            strWholeArticleHTML = self._processSpecificPatches(strWholeArticleHTML)
 
             try:
                 dom = etree.XML("<root>" + strWholeArticleHTML + "</root>")
@@ -54,7 +56,11 @@ class AppBG_ScrapeDeamon(Thread):
                     break
 
             except Exception as err:
-                print("Something wrong happen parsing this report: " + str(err) + ", ignoring")
+                # For some unknown reason, placing a breakpoint in here cause SIGSEGV during execution ... weird ...
+                # This is often due to error in the actual html page. Unfortunately it is an acceptable risk to ignore.
+                print("\nSomething wrong happen parsing this report: " + str(err) + ", ignoring report")
+                # print("\nSomething wrong happen parsing this report: " + str(err) + ", ignoring report :" + strWholeArticleHTML + "\n" + elementDelimiter + "\n" + str(dicAttribute) + "\n" + subElementURL + "\n" + subElementTitle + "\n" + subElementDateReport)
+
                 continue
 
             if self.repoReport.exist(report):
@@ -67,7 +73,9 @@ class AppBG_ScrapeDeamon(Thread):
     def _processDataSource(self, urlDataSource, elementDelimiter, dicAttribute, subElementURL, subElementTitle,
                            subElementDateReport):
         # Perform the requests
-        headers = {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36"}
+        headers = {
+            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) "
+                          "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36"}
         response = requests.get(urlDataSource, headers=headers)
 
         # Lets test what headers are sent by sending a request to HTTPBin
@@ -90,7 +98,8 @@ class AppBG_ScrapeDeamon(Thread):
         subElementURL = lstRow[3]
         subElementTitle = lstRow[4]
         subElementDateReport = lstRow[5]
-        self._processDataSource(urlDataSource, elementDelimiter, elementDelimiterAttribute, subElementURL, subElementTitle, subElementDateReport)
+        self._processDataSource(urlDataSource, elementDelimiter, elementDelimiterAttribute, subElementURL,
+                                subElementTitle, subElementDateReport)
 
     def onManageNormal(self):
         with open('./data/datasources.csv', newline='') as csvfile:
@@ -113,7 +122,8 @@ class AppBG_ScrapeDeamon(Thread):
                 subElementURL = row[3]
                 subElementTitle = row[4]
                 subElementDateReport = row[5]
-                self._processDataSource(urlDataSource, elementDelimiter, elementDelimiterAttribute, subElementURL, subElementTitle, subElementDateReport)
+                self._processDataSource(urlDataSource, elementDelimiter, elementDelimiterAttribute, subElementURL,
+                                        subElementTitle, subElementDateReport)
                 i = i + 1
 
         print("Waiting for an hour to do another round of Horizontal search")

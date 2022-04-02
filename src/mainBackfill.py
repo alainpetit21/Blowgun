@@ -7,14 +7,9 @@ def main():
     print("Welcome to Blowgun ScrapeDeamon")
 
     # Create the App object, load it, and run it (with main)
-    obj_app = AppBG_ScrapeDeamon()
+    obj_app = AppBG_ScrapeBackfillsAll()
     obj_app.load()
-    obj_app.start()
-
-    obj_webApp = WebAppBG_Engine()
-    obj_webApp.load()
-    obj_webApp.main()
-
+    obj_app.onManage()
 
 
 if __name__ == '__main__':
