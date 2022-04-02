@@ -2,7 +2,7 @@
 
 cd /home/ec2-user/Bianisoft/Code/Blowgun/
 export PYTHONPATH=${PYTHONPATH}:${PWD}
-source ./run_env/bin/activate
+source ./run_venv/bin/activate
 
 COMMAND=blowgun
 DONEYET="${COMMAND}.alreadyrun"
