@@ -1,3 +1,5 @@
+from datetime import date
+
 import cherrypy
 
 from src.CCC.WebApp import WebApp, CherryPyExposure
@@ -25,10 +27,13 @@ class MyCherryPyRestService:
         return "POST"
 
     @cherrypy.tools.accept(media='text/plain')
-    def GET(self, keyword=""):
-        objQueryResults = self.repoReport.searchInTitle(keyword)
-        return str(objQueryResults)
-
+    def GET(self, keyword="", tail=""):
+        if tail == "":
+            objQueryResults = self.repoReport.searchInTitle(keyword)
+            return str(objQueryResults)
+        else:
+            objQueryResults = self.repoReport.searchInTitleLatest(keyword, int(tail))
+            return str(objQueryResults)
 
     def PUT(self):
         return "PUT"
@@ -57,9 +62,8 @@ class WebAppBG_Engine(WebApp):
     def load(self):
         print("Welcome to Web Blowgun Engine")
 
-
     # ==================================================================================================================
     # on_manage : Periodically called (one per loop) for performing client-side operations. In this examples we only
     #               print the string and exit
-    def on_manage(self, param1= None):
+    def on_manage(self, param1=None):
         self.is_running = False

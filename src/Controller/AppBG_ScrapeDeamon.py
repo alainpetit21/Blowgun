@@ -27,7 +27,7 @@ class AppBG_ScrapeDeamon(Thread):
 
     def _processHTML(self, htmlSource, elementDelimiter, dicAttribute, subElementURL, subElementTitle,
                      subElementDateReport):
-        time.sleep(1)  # every 0.1 second, for some reason when it's writing too fast to stdin, it crashes
+        time.sleep(0.1)  # every 0.1 second, for some reason when it's writing too fast to stdin, it crashes
         soup = BeautifulSoup(htmlSource, 'html.parser')
 
         if len(dicAttribute) == 0:
@@ -86,21 +86,6 @@ class AppBG_ScrapeDeamon(Thread):
 
         self._processHTML(response.text, elementDelimiter, dicAttribute, subElementURL, subElementTitle, subElementDateReport)
 
-    def onManageTest(self):
-        csvText = "https://www.darkreading.com/threat-intelligence,div,class:topic-content-article,div[2]/div/div/div[1]/div[2]/a,div[2]/div/div/div[1]/div[2]/a,div[2]/div/div/div[2]/div[2]/div[2]"
-        lstRow = csvText.split(sep=",")
-
-        elementDelimiterAttribute = {}
-        urlDataSource = lstRow[0]
-        elementDelimiter = lstRow[1]
-        lstAttribute = lstRow[2].split(sep=":")
-        elementDelimiterAttribute[lstAttribute[0]] = lstAttribute[1]
-        subElementURL = lstRow[3]
-        subElementTitle = lstRow[4]
-        subElementDateReport = lstRow[5]
-        self._processDataSource(urlDataSource, elementDelimiter, elementDelimiterAttribute, subElementURL,
-                                subElementTitle, subElementDateReport)
-
     def onManageNormal(self):
         with open('./data/datasources.csv', newline='') as csvfile:
             dataSources = csv.reader(csvfile, delimiter=',', quotechar='"')
@@ -126,7 +111,7 @@ class AppBG_ScrapeDeamon(Thread):
                                         subElementTitle, subElementDateReport)
                 i = i + 1
 
-        print("Waiting for an hour to do another round of Horizontal search")
+        print("\nWaiting for an hour to do another round of Horizontal search")
         time.sleep(1 * 60 * 60)  # every 1 hours
         # time.sleep(10)
 

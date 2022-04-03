@@ -67,3 +67,23 @@ class BG_Report_Repository:
 
         objQueryResults.buildXML()
         return objQueryResults
+
+    def searchInTitleLatest(self, searchTerm: str, nTailRecords: int) -> BG_QueryResults:
+        connection = sqlite3.connect('./data/blowgun.db')
+        cursor = connection.cursor()
+        sqlCommand = 'SELECT * FROM Report WHERE title LIKE "%' + searchTerm + '%" ORDER BY date DESC LIMIT ' + str(nTailRecords)
+        cursor.execute(sqlCommand)
+        lstRows = cursor.fetchall()
+
+        objQueryResults = BG_QueryResults()
+        for row in lstRows:
+            objReport = BG_Report()
+            objReport.setClassification(row[0])
+            objReport.setURL(row[1])
+            objReport.setTitle(row[2])
+            objReport.setDate(row[3])
+            objReport.setProductID(row[4])
+            objQueryResults.addReportToResultSet(objReport)
+
+        objQueryResults.buildXML()
+        return objQueryResults

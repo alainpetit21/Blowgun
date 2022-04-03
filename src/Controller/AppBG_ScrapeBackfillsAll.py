@@ -24,7 +24,7 @@ class AppBG_ScrapeBackfillsAll(AppBG_ScrapeDeamon):
 
         # Special backfil krebsonsecurity.com/page/[2-213]
         for i in range(2, 8):
-            print("Page " + str(i))
+            print("Page " + str(i) + "of 8")
 
             try:
                 self._processDataSource("https://decoded.avast.io/page/" + str(i) + "/", "article", {}, "div[2]/div[1]/h2/a", "div[2]/div[1]/h2/a", "div[2]/div[1]/div[2]/span[2]/span")
@@ -36,7 +36,7 @@ class AppBG_ScrapeBackfillsAll(AppBG_ScrapeDeamon):
         print("Backfill KrebOnSecurity")
 
         for i in range(2, 213):
-            print("Page " + str(i))
+            print("Page " + str(i) + "of 213")
 
             # https://krebsonsecurity.com/page/2/,article,header/h2/a,header/h2/a,header/div[2]/div/div[1]/span
             try:
@@ -48,7 +48,7 @@ class AppBG_ScrapeBackfillsAll(AppBG_ScrapeDeamon):
     def onManageSpecialBackFilldarkreading(self):
         print("Backfill darkreading")
         for i in range(2, 377):
-            print("Page " + str(i))
+            print("Page " + str(i) + "of 377")
 
             # https://www.darkreading.com/threat-intelligence?page=377,div,class:topic-content-article,div[2]/div/div/div[1]/div[2]/a,div[2]/div/div/div[1]/div[2]/a,div[2]/div/div/div[2]/div[2]/div[2]
             try:
