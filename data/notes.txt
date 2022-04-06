@@ -4,69 +4,114 @@ DataSource :
 DataSource Backfill :
 bs4 keyword:
 bs4 attribut:
+Article XPath:
 URL XPath:
 Title XPath:
 Date XPath:
 Entry:
 
-threatpost - TODO
-===================
-DataSource : https://threatpost.com/
-DataSource Backfill :
-bs4 keyword:
-bs4 attribut:
-URL XPath:
-Title XPath:
-Date XPath:
-Entry:
-
-schneier - TODO
-===================
-DataSource : https://www.schneier.com/
-DataSource Backfill :
-bs4 keyword: div
-bs4 attribut: class="article"
-URL XPath:
-Title XPath:
-Date XPath:
-Entry:
-
-nakedsecurity - TODO
+nakedsecurity
 ===================
 DataSource : https://nakedsecurity.sophos.com/
-DataSource Backfill :
-bs4 keyword:
+DataSource Backfill : https://nakedsecurity.sophos.com/page/1628/
+bs4 keyword: article
 bs4 attribut:
-URL XPath:
-Title XPath:
-Date XPath:
+Article XPath: /html/body/div[2]/section[2]/div/div/div/div[2]/article[1]
+URL XPath:     /html/body/div[2]/section[2]/div/div/div/div[2]/article[1]/div[2]/h3/a
+Title XPath:   /html/body/div[2]/section[2]/div/div/div/div[2]/article[1]/div[2]/h3/a
+Date XPath:    /html/body/div[2]/section[2]/div/div/div/div[2]/article[1]/div[2]/h3/a dans lattribut href
 Entry:
+https://nakedsecurity.sophos.com/,article,,div[2]/h3/a,div[2]/h3/a,
 
-
-securityaffairs - TODO
+Alienvault
 ===================
-DataSource : https://securityaffairs.co/wordpress/
-DataSource Backfill : https://securityaffairs.co/wordpress/page/1282
+DataSource: https://cybersecurity.att.com/blogs
+DataSource Backfill: https://cybersecurity.att.com/blogs/P1583
 bs4 keyword: div
-bs4 attribut: class="post"
-URL XPath:
-Title XPath:
-Date XPath:
+bs4 attribut: class="blog-card"
+Article XPath: /html/body/main/section[3]/div[1]/div/div[1]/div
+URL XPath:     /html/body/main/section[3]/div[1]/div/div[1]/div/div/div[2]/a
+Title XPath:   /html/body/main/section[3]/div[1]/div/div[1]/div/div/div[2]/a
+Date XPath:    /html/body/main/section[3]/div[1]/div/div[1]/div/div/div[3]/
 Entry:
+https://cybersecurity.att.com/blogs,div,class:blog-card,div/div[2]/a,div/div[2]/a,div/div[3]
 
-cybergeeks - TODO
+Rapid7
+===================
+DataSource : https://www.rapid7.com/blog/posts/
+DataSource Backfill : https://www.rapid7.com/blog/posts/?page=301
+bs4 keyword: a
+bs4 attribut: class="blog-all-posts__wrapper--item"
+Article XPath: /html/body/div[3]/div/div[2]/div[2]/section/div/div[2]/div[1]/a[1]
+URL XPath:     /html/body/div[3]/div/div[2]/div[2]/section/div/div[2]/div[1]/a[1]
+Title XPath:   /html/body/div[3]/div/div[2]/div[2]/section/div/div[2]/div[1]/a[1]/div[1]/h3
+Date XPath:    /html/body/div[3]/div/div[2]/div[2]/section/div/div[2]/div[1]/a[1] attribut du URL
+Entry:
+https://www.rapid7.com/blog/posts/,a,class:blog-all-posts__wrapper--item,,div[1]/h3,
+
+thehackernews
+====================
+DataSource : https://thehackernews.com/
+DataSource Backfill : https://thehackernews.com/search?updated-max=2010-10-31T00:00:00-00:00&max-results=25
+bs4 keyword: div
+bs4 attribute: class="body-post clear"
+Article XPath: /html/body/main/div/div/div/div/div/div[1]/div[1]
+URL XPath:     /html/body/main/div/div/div/div/div/div[1]/div[1]/a
+Title XPath:   /html/body/main/div/div/div/div/div/div[1]/div[1]/a/div/div[2]/h2
+Date XPath:    /html/body/main/div/div/div/div/div/div[1]/div[1]/a/div/div[2]/div[1]
+Entry:
+https://thehackernews.com/,div,class:post,a,a/div/div[2]/h2,a/div/div[2]/div[1]
+
+cybergeeks
 ===================
 DataSource : https://cybergeeks.tech/
 DataSource Backfill : https://cybergeeks.tech/page/2/
 bs4 keyword: article
 bs4 attribut:
-URL XPath:
-Title XPath:
-Date XPath:
+Article XPath: /html/body/div/div/div/div[1]/main/div/article[1]
+URL XPath:     /html/body/div/div/div/div[1]/main/div/article[1]/div/div/header/h2/a
+Title XPath:   /html/body/div/div/div/div[1]/main/div/article[1]/div/div/header/h2/a
+Date XPath:    /html/body/div/div/div/div[1]/main/div/article[1]/div/div/header/div/span[3]/span[1]
+Entry: https://cybergeeks.tech/,article,,div/div/header/h2/a,div/div/header/h2/a,div/div/header/div/span[3]/span[1]
+
+securityaffairs
+===================
+DataSource :
+DataSource Backfill : https://securityaffairs.co/wordpress/page/1284
+bs4 keyword: div
+bs4 attribut: class="post"
+Article XPath: /html/body/div[2]/div[5]/div/div/div[1]/div[3]
+URL XPath:     /html/body/div[2]/div[5]/div/div/div[1]/div[3]/div/div/div[2]/div/h3/a
+Title XPath:   /html/body/div[2]/div[5]/div/div/div[1]/div[3]/div/div/div[2]/div/h3/a
+Date XPath:    /html/body/div[2]/div[5]/div/div/div[1]/div[3]/div/div/div[4]/a[1]
+Entry: https://securityaffairs.co/wordpress/,div,class:post,div/div/div[2]/div/h3/a,div/div/div[2]/div/h3/a,div/div/div[4]/a[1]
+
+schneier
+===================
+DataSource : https://www.schneier.com/
+DataSource Backfill : https://www.schneier.com/page/811/
+bs4 keyword: div
+bs4 attribut: class="article"
+Article XPath: /html/body/div/div/div/article[4]/div
+URL XPath:     /html/body/div/div/div/article[4]/div/h2/a
+Title XPath:   /html/body/div/div/div/article[4]/div/h2/a
+Date XPath:    /html/body/div/div/div/article[4]/div/p[last()]/a[1]
 Entry:
+https://www.schneier.com/,div,class:article,h2/a,h2/a,p[last()]/a[1]
 
 
-
+threatpost
+===================
+DataSource : https://threatpost.com/
+DataSource Backfill : txt file in data
+bs4 keyword: article
+bs4 attribut:
+Article XPath: /html/body/div[3]/div[1]/div[4]/div/div/div[1]/div[1]/article[1]
+URL XPath:     /html/body/div[3]/div[1]/div[4]/div/div/div[1]/div[1]/article[1]/div/div[2]/h2/a
+Title XPath:   /html/body/div[3]/div[1]/div[4]/div/div/div[1]/div[1]/article[1]/div/div[2]/h2/a
+Date XPath:    /html/body/div[3]/div[1]/div[4]/div/div/div[1]/div[1]/article[1]/div/div[2]/div/div[2]/time
+Entry:
+https://threatpost.com/,article,,div/div[2]/h2/a,div/div[2]/h2/a,div/div[2]/div/div[2]/time
 
 Dark Reading
 ===================
@@ -112,33 +157,16 @@ Entry:
 https://krebsonsecurity.com/,article,header/h2/a,header/h2/a,header/div[2]/div/div[1]/span
 
 
-WeLiveSecurity
-==============
-Datasource: https://www.welivesecurity.com/category/*/
-bs4 Keyword per article: article
-URL XPath: div[2]/h2/a
-TITLE XPath: div[2]/h2/a
-Date XPath: div[2]/span/time
-Entries:
-https://www.welivesecurity.com/category/cybercrime/,article,div[2]/h2/a,div[2]/h2/a,div[2]/span/time
-https://www.welivesecurity.com/category/malware/,article,div[2]/h2/a,div[2]/h2/a,div[2]/span/time
-https://www.welivesecurity.com/category/privacy/,article,div[2]/h2/a,div[2]/h2/a,div[2]/span/time
-https://www.welivesecurity.com/category/cybersecurity/,article,div[2]/h2/a,div[2]/h2/a,div[2]/span/time
-https://www.welivesecurity.com/category/password/,article,div[2]/h2/a,div[2]/h2/a,div[2]/span/time
-https://www.welivesecurity.com/category/scams/,article,div[2]/h2/a,div[2]/h2/a,div[2]/span/time
-https://www.welivesecurity.com/category/how-to/,article,div[2]/h2/a,div[2]/h2/a,div[2]/span/time
-https://www.welivesecurity.com/category/android-2/,article,div[2]/h2/a,div[2]/h2/a,div[2]/span/time
-https://www.welivesecurity.com/category/ransomware-malware/,article,div[2]/h2/a,div[2]/h2/a,div[2]/span/time
-https://www.welivesecurity.com/category/mobile-security/,article,div[2]/h2/a,div[2]/h2/a,div[2]/span/time
-https://www.welivesecurity.com/category/data-protection/,article,div[2]/h2/a,div[2]/h2/a,div[2]/span/time
-https://www.welivesecurity.com/category/kids-online/,article,div[2]/h2/a,div[2]/h2/a,div[2]/span/time
-https://www.welivesecurity.com/category/covid-19/,article,div[2]/h2/a,div[2]/h2/a,div[2]/span/time
-https://www.welivesecurity.com/category/internet-of-things-2/,article,div[2]/h2/a,div[2]/h2/a,div[2]/span/time
-https://www.welivesecurity.com/category/ukraine-crisis-digital-security-resource-center/,article,div[2]/h2/a,div[2]/h2/a,div[2]/span/time
-https://www.welivesecurity.com/category/secure-coding/,article,div[2]/h2/a,div[2]/h2/a,div[2]/span/time
-https://www.welivesecurity.com/category/threat-reports/,article,div[2]/h2/a,div[2]/h2/a,div[2]/span/time
-https://www.welivesecurity.com/category/fintech/,article,div[2]/h2/a,div[2]/h2/a,div[2]/span/time
-https://www.welivesecurity.com/category/we-live-progress/,article,div[2]/h2/a,div[2]/h2/a,div[2]/span/time
-
-
+welivesecurity
+===================
+DataSource : https://www.welivesecurity.com/
+DataSource Backfill : https://www.welivesecurity.com/page/284/
+bs4 keyword: article
+bs4 attribut:
+Article XPath: /html/body/div/div/div/section/article[1]
+URL XPath:     /html/body/div/div/div/section/article[1]/div[2]/h2/a
+Title XPath:   /html/body/div/div/div/section/article[1]/div[2]/h2/a
+Date XPath:    /html/body/div/div/div/section/article[1]/div[2]/span/time
+Entry:
+https://www.welivesecurity.com/,article,,div[2]/h2/a,div[2]/h2/a,div[2]/span/time
 

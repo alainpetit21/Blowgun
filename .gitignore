@@ -3,3 +3,7 @@
 ./data/blowgun-kp.pem
 ./data/blowgun.db
 ./venv
+/data/collectedIntel.txt
+/data/blowgun-kp.pem
+/data/blowgun.db
+/data/.notes.txt.kate-swp
