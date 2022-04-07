@@ -53,7 +53,7 @@ class AppBG_ScrapeBackfillsAll(AppBG_ScrapeDeamon):
 
             # https://www.darkreading.com/threat-intelligence?page=377,div,class:topic-content-article,div[2]/div/div/div[1]/div[2]/a,div[2]/div/div/div[1]/div[2]/a,div[2]/div/div/div[2]/div[2]/div[2]
             try:
-                self._processDataSource("https://www.darkreading.com/threat-intelligence?page=" + str(i), "div", {'class': 'topic-content-article'}, "div[2]/div/div/div[1]/div[2]/a", "div[2]/div/div/div[1]/div[2]/a", "div[2]/div/div/div[2]/div[2]/div[2]")
+                self._processDataSource("https://www.darkreading.com/threat-intelligence?page=" + str(i), "div", {'class': 'topic-content-article'}, "div/div/div/div[1]/div[2]/a", "div/div/div/div[1]/div[2]/a", "div/div/div/div[2]/div[2]/div[2]")
             except Exception as err:
                 print("Something went wrong with " + str(err) + ", ignoring this report")
                 continue

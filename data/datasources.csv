@@ -8,7 +8,7 @@ https://cybergeeks.tech/,article,,div/div/header/h2/a,div/div/header/h2/a,div/di
 https://securityaffairs.co/wordpress/,div,class:post,div/div/div[2]/div/h3/a,div/div/div[2]/div/h3/a,div/div/div[4]/a[1]
 https://www.schneier.com/,div,class:article,h2/a,h2/a,p[last()]/a[1]
 https://threatpost.com/,article,,div/div[2]/h2/a,div/div[2]/h2/a,div/div[2]/div/div[2]/time
-https://www.darkreading.com/threat-intelligence,div,class:topic-content-article,div[2]/div/div/div[1]/div[2]/a,div[2]/div/div/div[1]/div[2]/a,div[2]/div/div/div[2]/div[2]/div[2]
+https://www.darkreading.com/threat-intelligence,div,class:topic-content-article,div/div/div/div[1]/div[2]/a,div/div/div/div[1]/div[2]/a,div/div/div/div[2]/div[2]/div[2]
 https://unit42.paloaltonetworks.com/,article,,div[2]/h3/a,div[2]/h3/a,div[2]/ul/li[2]/time
 https://decoded.avast.io/,article,,div[2]/div[1]/h2/a,div[2]/div[1]/h2/a,div[2]/div[1]/div[2]/span[2]/span
 https://krebsonsecurity.com/,article,,header/h2/a,header/h2/a,header/div[2]/div/div[1]/span

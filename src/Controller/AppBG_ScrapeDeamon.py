@@ -25,6 +25,7 @@ class AppBG_ScrapeDeamon(Thread):
         strHTML = strHTML.replace("\t", "")
         strHTML = strHTML.replace('a "="" href', "a href")
         strHTML = strHTML.replace('<i class="icon-font icon-calendar"></i>', "") #Pathc for hackernews to remove specialcase of calender in index [0] for dates
+        strHTML = strHTML.replace('<div id="detect_page_2"></div>', "") #Pathc for darkreading to remove specialcase of being unable to read 50 % of the article
 
         return strHTML
 
@@ -36,6 +37,13 @@ class AppBG_ScrapeDeamon(Thread):
         else:
             return strURL
 
+    def _processDOMFindTitle(self, dom, subElementTitle) -> str:
+        strTitle = dom.xpath('//' + subElementTitle)[0].text
+        strTitle = strTitle.replace('"', '')
+
+        return strTitle
+
+
 
 
     def _processDOMFindDate(self, dom, report, elementDelimiter, subElementDateReport) -> str:
@@ -46,7 +54,8 @@ class AppBG_ScrapeDeamon(Thread):
             strDate = dom.xpath(domDateXPath)[0].text
         except Exception as err:
             #if that doesn't work, try to read from URL.
-            matches = datefinder.find_dates(report.getURL())
+            urlDataSource = re.findall(r"([0-9]{2,4}\/[0-9]{2}\/[0-9]{2})", report.getURL())
+            matches = datefinder.find_dates(urlDataSource[0])
             for match in matches:
                 strDate = match.strftime("%Y/%m/%d")
                 break
@@ -79,7 +88,7 @@ class AppBG_ScrapeDeamon(Thread):
                 report = BG_Report()
                 report.setClassification("UNCLASSIFIED")
                 report.setURL(self._processDOMFindURL(dom, htmlRoot, subElementURL))
-                report.setTitle(dom.xpath('//' + subElementTitle)[0].text)
+                report.setTitle(self._processDOMFindTitle(dom, subElementTitle))
                 report.setDate(self._processDOMFindDate(dom, report, elementDelimiter, subElementDateReport))
 
             except Exception as err:
