@@ -1,0 +1,6 @@
+wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+sudo yum install epel-release-latest-7.noarch.rpm
+sudo yum -y install certbot-nginx
+sudo certbot certonly --standalone -d blowgun.bianisoft.com --non-interactive --email admin@bianisoft.com --agree-tos
+
+After all i've decided to user ALB instead

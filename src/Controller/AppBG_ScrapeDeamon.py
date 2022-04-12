@@ -12,6 +12,7 @@ from src.Repository.BG_Report_Repository import BG_Report_Repository
 from src.Model.BG_Report import BG_Report
 
 
+# ======================================================================================================================
 class AppBG_ScrapeDeamon(Thread):
     def __init__(self):
         super().__init__("AppBG_ScrapeDeamon")
@@ -42,9 +43,6 @@ class AppBG_ScrapeDeamon(Thread):
         strTitle = strTitle.replace('"', '')
 
         return strTitle
-
-
-
 
     def _processDOMFindDate(self, dom, report, elementDelimiter, subElementDateReport) -> str:
         strDate = ""

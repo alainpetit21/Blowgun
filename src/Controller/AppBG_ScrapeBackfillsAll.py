@@ -67,7 +67,6 @@ class AppBG_ScrapeBackfillsAll(AppBG_ScrapeDeamon):
 
             self._processHTML("https://threatpost.com/", text, "article", {}, "div/div[2]/h2/a", "div/div[2]/h2/a", "div/div[2]/div/div[2]/time")
 
-
     def onManageSpecialBackFill_schneier(self):
         print("Backfill schneier")
         for i in range(2, 811):
@@ -78,7 +77,6 @@ class AppBG_ScrapeBackfillsAll(AppBG_ScrapeDeamon):
             except Exception as err:
                 print("Something went wrong with " + str(err) + ", ignoring this report")
                 continue
-
 
     def onManageSpecialBackFill_securityaffairs(self):
         print("Backfill securityaffairs")
@@ -105,7 +103,7 @@ class AppBG_ScrapeBackfillsAll(AppBG_ScrapeDeamon):
     def onManageSpecialBackFill_hackernews(self):
         dataStart = date.today()
         print("Backfill cybergeeks")
-        for i in range(1, 4300):
+        for i in range(2, 4300):
             print("Page " + str(i) + "of 4300")
             url = f"https://thehackernews.com/search?updated-max={dataStart.strftime('%Y-%m-%d')}T00:00:00-00:00&max-results=25"
             try:

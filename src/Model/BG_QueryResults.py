@@ -35,4 +35,3 @@ class BG_QueryResults:
 
     def __str__(self) -> str:
         return str(etree.tostring(self.elResults))[2:-1]
-

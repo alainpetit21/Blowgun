@@ -3,7 +3,7 @@ https://nakedsecurity.sophos.com/,article,,div[2]/h3/a,div[2]/h3/a,
 https://www.welivesecurity.com/,article,,div[2]/h2/a,div[2]/h2/a,div[2]/span/time
 https://cybersecurity.att.com/blogs,div,class:blog-card,div/div[2]/a,div/div[2]/a,div/div[3]
 https://www.rapid7.com/blog/posts/,a,class:blog-all-posts__wrapper--item,,div[1]/h3,
-https://thehackernews.com/,div,class:post,a,a/div/div[2]/h2,a/div/div[2]/div[1]
+https://thehackernews.com/,div,class:body-post,a,a/div/div[2]/h2,a/div/div[2]/div[1]
 https://cybergeeks.tech/,article,,div/div/header/h2/a,div/div/header/h2/a,div/div/header/div/span[3]/span[1]
 https://securityaffairs.co/wordpress/,div,class:post,div/div/div[2]/div/h3/a,div/div/div[2]/div/h3/a,div/div/div[4]/a[1]
 https://www.schneier.com/,div,class:article,h2/a,h2/a,p[last()]/a[1]

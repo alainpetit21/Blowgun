@@ -1,5 +1,6 @@
 import hashlib
 
+
 class BG_Report:
     def __init__(self):
         self.strClassification = ""
@@ -25,7 +26,6 @@ class BG_Report:
 
     def setProductID(self, strProductID):
         pass
-
 
     def getClassification(self):
         return self.strClassification
