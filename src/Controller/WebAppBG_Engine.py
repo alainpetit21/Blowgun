@@ -14,7 +14,10 @@ class MyCherryPyThread(CherryPyExposure):
         self.repoReport = BG_Report_Repository()
 
     @cherrypy.expose
-    def index(self, keyword="", tail=""):
+    def index(self):
+        return "Welcome to Blowgun Engine"
+    @cherrypy.expose
+    def query(self, keyword="", tail=""):
         with open('./Web/public/header.html') as file:
             header = file.read()
         with open('./Web/public/footer.html') as file:
