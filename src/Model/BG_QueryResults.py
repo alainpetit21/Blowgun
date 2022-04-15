@@ -4,7 +4,7 @@ from src.Model.BG_Report import BG_Report
 
 class BG_QueryResults:
     def __init__(self):
-        self.results = []
+        self.results : list[BG_Report] = []
         self.elResults = etree.Element("results")
 
     def addReportToResultSet(self, report: BG_Report):
@@ -32,6 +32,18 @@ class BG_QueryResults:
             self.elResults.append(elReport)
 
         return etree.tostring(self.elResults)
+
+    def buildSimpleHTML(self) -> str:
+        res = ""
+        for report in self.results:
+            res += "<tr>\n"
+            res += '\t<td width="40%">' + report.getTitle() + '</td>'
+            res += '\t<td width="10%">' + report.getDate() + '</td>'
+            res += '\t<td width="40%">' + report.getURL() + '</td>'
+            res += '\t<td width="10%"><a href="' + report.getURL() + '">Click here! </a></td>'
+            res += "</tr>\n"
+
+        return res
 
     def __str__(self) -> str:
         return str(etree.tostring(self.elResults))[2:-1]

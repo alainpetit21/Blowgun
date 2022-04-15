@@ -3,6 +3,7 @@ from datetime import date
 import cherrypy
 
 from src.CCC.WebApp import WebApp, CherryPyExposure
+from src.Model.BG_QueryResults import BG_QueryResults
 from src.Repository.BG_Report_Repository import BG_Report_Repository
 
 
@@ -13,9 +14,19 @@ class MyCherryPyThread(CherryPyExposure):
         self.repoReport = BG_Report_Repository()
 
     @cherrypy.expose
-    def index(self):
-        # return open('Web/index.html')
-        return "Welcome to Web Blowgun Engine"
+    def index(self, keyword="", tail=""):
+        with open('./Web/public/header.html') as file:
+            header = file.read()
+        with open('./Web/public/footer.html') as file:
+            footer = file.read()
+
+        objQueryResults: BG_QueryResults
+        if tail == "":
+            objQueryResults = self.repoReport.searchInTitle(keyword)
+        else:
+            objQueryResults = self.repoReport.searchInTitleLatest(keyword, int(tail))
+
+        return header + objQueryResults.buildSimpleHTML() + footer
 
 
 # ======================================================================================================================

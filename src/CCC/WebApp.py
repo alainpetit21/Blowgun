@@ -43,7 +43,7 @@ class CherryPyExposure(Thread):
             Preparing the Thread for running.
         """
         cherrypy.config.update({'server.socket_host': '0.0.0.0', 'server.socket_port': 8080, 'request.show_tracebacks': False})
-        #cherrypy.config.update({'server.socket_host': '127.0.0.1', 'server.socket_port': 8080, 'request.show_tracebacks': False})
+        # cherrypy.config.update({'server.socket_host': '127.0.0.1', 'server.socket_port': 8080, 'request.show_tracebacks': False})
 
     # ==================================================================================================================
     def onManage(self, param1= None):

@@ -25,8 +25,8 @@ class AppBG_ScrapeDeamon(Thread):
         strHTML = strHTML.replace("\n", "")
         strHTML = strHTML.replace("\t", "")
         strHTML = strHTML.replace('a "="" href', "a href")
-        strHTML = strHTML.replace('<i class="icon-font icon-calendar"></i>', "") #Pathc for hackernews to remove specialcase of calender in index [0] for dates
-        strHTML = strHTML.replace('<div id="detect_page_2"></div>', "") #Pathc for darkreading to remove specialcase of being unable to read 50 % of the article
+        strHTML = strHTML.replace('<i class="icon-font icon-calendar"></i>', "") # Pathc for hackernews to remove specialcase of calender in index [0] for dates
+        strHTML = strHTML.replace('<div id="detect_page_2"></div>', "") # Patch for darkreading to remove specialcase of being unable to read 50 % of the article
 
         return strHTML
 
@@ -96,7 +96,7 @@ class AppBG_ScrapeDeamon(Thread):
                 # print("\nSomething wrong happen parsing this report: " + str(err) + ", ignoring report :" + strWholeArticleHTML + "\n" + elementDelimiter + "\n" + str(dicAttribute) + "\n" + subElementURL + "\n" + subElementTitle + "\n" + subElementDateReport)
                 continue
 
-            if self.repoReport.exist(report):
+            if self.repoReport.exists(report):
                 print(".", end="")
                 continue
 

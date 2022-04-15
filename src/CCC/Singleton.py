@@ -4,7 +4,7 @@ Module for SingletonDecorator class. 1 classes in this module : SingletonDecorat
 """
 
 
-class SingletonDecorator:
+class Singleton:
     """
     Class SingletonDecorator Description :
         Decorator helper object that will manage the Singleton DesignPattern as a Python Decorator. Keep in mind That
