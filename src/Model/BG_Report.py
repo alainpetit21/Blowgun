@@ -20,6 +20,9 @@ class BG_Report:
     def setTitle(self, title):
         self.title = title
 
+    def setText(self, text):
+        self.text = text
+
     def setReportText(self, text):
         self.text = text
 
@@ -37,6 +40,9 @@ class BG_Report:
 
     def getTitle(self):
         return self.title
+
+    def getText(self):
+        return self.text
 
     def getReportText(self):
         return self.text

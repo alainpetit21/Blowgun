@@ -29,10 +29,10 @@ class BG_Report_Repository:
         return len(lstRows) > 0
 
     def save(self, objReport: BG_Report):
-        objReport.title = objReport.title.replace('"', '\"')
-        objReport.title = objReport.title.replace("'", "\'")
-        objReport.text = objReport.text.replace('"', '\"')
-        objReport.text = objReport.text.replace("'", "\'")
+        objReport.setTitle(objReport.getTitle().replace('"', '\"'))
+        objReport.setTitle(objReport.title.replace("'", "\'"))
+        objReport.setText(objReport.getText().replace('"', '\"'))
+        objReport.setText(objReport.getText().replace("'", "\'"))
         strCommand = 'REPLACE INTO Report (classification, url, title, date, hash) ' \
                      'VALUES (' \
                      '"' + objReport.getClassification() + '", ' \
