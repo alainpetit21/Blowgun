@@ -28,11 +28,7 @@ class MyCherryPyThread(CherryPyExposure):
         baseName = baseName.replace(":", "")
         fileOutput = './output/' + baseName + '-' + str(date.today()) + '.pdf'
 
-        try:
-            pdfkit.from_url(url, fileOutput)
-        except Exception as ex:
-            print("Found error, but trying to ignore")
-            traceback.print_exc()
+        os.system("/usr/bin/wkhtmltopdf " + url + " " + fileOutput)
 
         if os.path.exists(fileOutput):
             localDir = os.path.dirname(__file__)
