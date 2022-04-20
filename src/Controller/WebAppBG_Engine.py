@@ -1,4 +1,5 @@
 import os
+import traceback
 
 from cherrypy.lib.static import serve_file
 
@@ -30,7 +31,8 @@ class MyCherryPyThread(CherryPyExposure):
         try:
             pdfkit.from_url(url, fileOutput)
         except Exception as ex:
-            print("Found error, but trying to inore")
+            print("Found error, but trying to ignore")
+            traceback.print_exc()
 
         if os.path.exists(fileOutput):
             localDir = os.path.dirname(__file__)
