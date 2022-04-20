@@ -1,11 +1,14 @@
-from datetime import date
+import os
 
-import cherrypy
+from cherrypy.lib.static import serve_file
 
 from src.CCC.WebApp import WebApp, CherryPyExposure
 from src.Model.BG_QueryResults import BG_QueryResults
 from src.Repository.BG_Report_Repository import BG_Report_Repository
+from datetime import date
 
+import cherrypy
+import pdfkit
 
 # ======================================================================================================================
 class MyCherryPyThread(CherryPyExposure):
@@ -16,6 +19,29 @@ class MyCherryPyThread(CherryPyExposure):
     @cherrypy.expose
     def index(self):
         return "Welcome to Blowgun Engine"
+
+    @cherrypy.expose
+    def downloadPDF(self, url):
+        baseName = url.replace("/", "")
+        baseName = baseName.replace(".", "")
+        baseName = baseName.replace(":", "")
+        fileOutput = './output/' + baseName + '-' + str(date.today()) + '.pdf'
+
+        try:
+            pdfkit.from_url(url, fileOutput)
+        except Exception as ex:
+            print("Found error, but trying to inore")
+
+        if os.path.exists(fileOutput):
+            localDir = os.path.dirname(__file__)
+            absDir = os.path.join(os.getcwd(), localDir)
+            path = os.path.join(absDir, "pdf_file.pdf")
+            path = os.getcwd() + "/" + fileOutput
+
+            return serve_file(path, "application/x-download", "attachment", os.path.basename(path))
+        else:
+            return "Error in PDF Generation, please press back and try again"
+
     @cherrypy.expose
     def query(self, keyword="", tail=""):
         with open('./Web/public/header.html') as file:
