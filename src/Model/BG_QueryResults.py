@@ -41,7 +41,7 @@ class BG_QueryResults:
             res += '\t<td width="10%">' + report.getDate() + '</td>'
             res += '\t<td width="40%">' + report.getURL() + '</td>'
             res += '\t<td width="10%"><a href="' + report.getURL() + '">Click here! </a></td>'
-            res += '\t<td width="10%"><a href=https://blowgun.bianisoft.com/downloadPDF?url=' + report.getURL() + '>Click here! </a></td>'
+            res += '\t<td width="10%"><a href=/downloadPDF?url=' + report.getURL() + '>Click here! </a></td>'
             res += "</tr>\n"
 
         return res

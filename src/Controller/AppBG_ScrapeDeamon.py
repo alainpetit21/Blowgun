@@ -107,7 +107,11 @@ class AppBG_ScrapeDeamon(Thread):
         # Perform the requests
         headers = {
             "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36"}
-        response = requests.get(urlDataSource, headers=headers)
+        try:
+            response = requests.get(urlDataSource, headers=headers)
+        except Exception as err:
+            print("\nSomething wrong with the request: " + str(err) + ", will try again on next horizontal search")
+            return
 
         # Lets test what headers are sent by sending a request to HTTPBin
 
